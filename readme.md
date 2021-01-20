@@ -165,3 +165,14 @@ WHERE
 
 ```
 
+## Homework
+
+- fetch the number of food categories from products
+- fetch all the products that cost more than 10$ and in the following categories:
+Oil
+Sauces
+
+- fetch the number of companies according the suppliers table
+- fetch the number of suppliers
+- fetch the number of customers
+- fetch the number of orders which under state IL
