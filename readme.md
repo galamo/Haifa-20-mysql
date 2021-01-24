@@ -1,6 +1,6 @@
 # MySQL
 
-## Select statement
+# Select statement
 
 - Fetch data from specific table
 - Use `*` to spicfy all columns
@@ -59,7 +59,7 @@ SELECT COUNT(*) as numberOfCustomers FROM northwind.customers;
 
 ```
 
-# Distinct 
+### Distinct 
 
 - return distinct values
 
@@ -178,7 +178,7 @@ Sauces
 - fetch the number of orders which under state IL
 
 
-# Order By
+### Order By
 
 ```sql
 SELECT column1, column2, ...
@@ -190,8 +190,57 @@ ORDER BY column1, column2, ... ASC|DESC;
 
 ```sql
 SELECT * FROM northwind.orders order by order_date DESC
+
+
+SELECT * FROM northwind.orders
+WHERE order_date > '2006-06-01 00:00:00'
+order by order_date desc ,shipped_date asc
+
 ```
 
  ### ex
 
  - write a query that return all the last orders that pay by credit card order by shipped date.
+
+
+# Insert statement
+
+
+
+
+```sql
+
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...),
+       (value1, value2, value3, ...),
+       (value1, value2, value3, ...);
+
+```
+
+# Null values
+- we cant compare any data cell to Null
+- we will use `is null` Or `is not null`
+
+```sql
+SELECT 
+    *
+FROM
+    northwind.customers where country_region is not null
+```
+
+
+# Update
+
+```sql
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+
+```
+
+## ex1
+- Update the orders table, set the taxes of the orders to be 5$ only for orders which paid with credit_card
+
+- Insert your user to the Employees under Diff region
+
