@@ -358,3 +358,10 @@ CREATE TABLE `test_demo2`.`users` (
 - price: int
 - createdAt : Datetime
 - updatedAt : Datetime ( when was the last time the records updated)
+
+
+
+## HomeWork
+
+1. ברצונכם לנהל את שירותי ההסעות בחברה, עליכם לכתוב שאילת שמחזירה את כמות העובדים לפי כל עיר
+ 
