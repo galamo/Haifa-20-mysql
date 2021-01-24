@@ -244,3 +244,66 @@ WHERE condition;
 
 - Insert your user to the Employees under Diff region
 
+# Delete
+
+```sql
+DELETE FROM table_name WHERE condition;
+```
+
+# Select - continue
+
+## limit
+
+```sql
+SELECT * FROM northwind.orders where order_date > "2006-01-22 00:00:00" limit 10
+```
+
+## Functions
+- Max
+- Min
+- Count
+- Avg
+- Sum
+
+# Group By
+
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
+```
+
+
+```sql
+
+SELECT 
+    ship_city, COUNT(*) AS numberOfOrders
+FROM
+    northwind.orders
+GROUP BY northwind.orders.ship_city
+
+
+SELECT 
+    ship_city, SUM(shipping_fee) AS totalShippingFee, COUNT(*) AS totalOrdersPerCity 
+FROM
+    northwind.orders
+GROUP BY northwind.orders.ship_city 
+
+
+SELECT 
+    ship_city, SUM(shipping_fee) AS totalShippingFee
+FROM
+    northwind.orders
+GROUP BY northwind.orders.ship_city 
+ORDER BY totalShippingFee desc
+LIMIT 5
+
+
+
+```
+
+
+# ex 2
+- which city we have the highest amount of customers
