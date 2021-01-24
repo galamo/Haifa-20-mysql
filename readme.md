@@ -176,3 +176,22 @@ Sauces
 - fetch the number of suppliers
 - fetch the number of customers
 - fetch the number of orders which under state IL
+
+
+# Order By
+
+```sql
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+```
+
+### Examples
+
+```sql
+SELECT * FROM northwind.orders order by order_date DESC
+```
+
+ ### ex
+
+ - write a query that return all the last orders that pay by credit card order by shipped date.
