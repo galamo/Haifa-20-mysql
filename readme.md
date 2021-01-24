@@ -307,3 +307,54 @@ LIMIT 5
 
 # ex 2
 - which city we have the highest amount of customers
+
+## Having
+- when we need where on Group by
+
+```sql
+SELECT 
+    city, COUNT(*) AS numberOfCustomers
+FROM
+    northwind.customers
+GROUP BY city
+HAVING numberOfCustomers > 2
+ORDER BY numberOfCustomers DESC
+
+
+
+```
+
+
+# Data Types:
+- varchar
+- int
+- bigint
+- boolean
+- datetime
+
+
+
+# Create Table
+
+```sql
+
+CREATE TABLE `test_demo2`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `userName` VARCHAR(100) NOT NULL,
+  `firstName` VARCHAR(45) NOT NULL,
+  `lastName` VARCHAR(100) NOT NULL,
+  `age` INT NULL,
+  `createdAt` DATE NULL DEFAULT NOW(),
+  PRIMARY KEY (`id`));
+
+```
+
+
+# ex 2 
+- Create Table for Products
+- id : PK
+- productName: string
+- category : string
+- price: int
+- createdAt : Datetime
+- updatedAt : Datetime ( when was the last time the records updated)
