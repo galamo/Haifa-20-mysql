@@ -369,3 +369,51 @@ minimum_reorder_quantity
 3. כתבו שאילת המחזירה את הממוצע מחיר מוצרים לפי קטגוריה
 4. לפי טבלת הזמנות הריצו שאילתה המחזירה את כמות ההזמנות לפי אמצעי תשלום
 
+## Homework Solution
+
+```sql
+1.
+
+SELECT 
+    city, COUNT(*) AS numberOfEmployee
+FROM
+    northwind.employees
+GROUP BY city
+Having max(numberOfEmployee)
+order by numberOfEmployee desc limit 1
+
+```
+
+
+# Join
+
+## Inner Join
+
+### Example:
+
+```sql
+
+
+SELECT * FROM northwind.orders where order_date > "2006-03-20 00:00:00" and shipper_id is not null
+SELECT * FROM northwind.shippers
+
+SELECT 
+    northwind.orders.id AS 'id from orders',
+    northwind.orders.shipper_id AS 'shipper id from orders',
+    northwind.shippers.id AS 'id from shippers',
+    northwind.shippers.company as "company name from shippers"
+FROM
+    northwind.orders
+        JOIN
+    northwind.shippers ON northwind.orders.shipper_id = northwind.shippers.id
+
+
+
+
+
+```
+
+
+### ex 1
+- Write a query that return every order and status:  order id, status id (from orders) , id from  order_details_status and status string from order_details_status
+
