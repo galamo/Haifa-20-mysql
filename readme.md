@@ -410,6 +410,81 @@ FROM
 
 
 
+SELECT * FROM northwind.orders where order_date > "2006-03-20 00:00:00" and shipper_id is not null
+SELECT * FROM northwind.shippers
+
+SELECT 
+    northwind.orders.id AS 'id from orders',
+    northwind.orders.shipper_id AS 'shipper id from orders',
+    northwind.shippers.id AS 'id from shippers',
+    northwind.shippers.company AS 'company name from shippers',
+    northwind.employees.first_name 
+FROM
+    northwind.orders
+        JOIN
+    northwind.shippers ON northwind.orders.shipper_id = northwind.shippers.id
+        JOIN
+    northwind.employees ON northwind.orders.employee_id = northwind.employees.id
+
+
+
+
+
+
+SELECT 
+    northwind.orders.id AS 'id from orders',
+    northwind.orders.shipper_id AS 'shipper id from orders',
+    northwind.shippers.id AS 'id from shippers',
+    northwind.shippers.company AS 'company name from shippers'
+FROM
+    northwind.shippers
+        LEFT JOIN
+    northwind.orders ON northwind.orders.shipper_id = northwind.shippers.id
+
+
+SELECT 
+    northwind.orders.id AS 'id from orders',
+    northwind.orders.shipper_id AS 'shipper id from orders',
+    northwind.shippers.id AS 'id from shippers',
+    northwind.shippers.company AS 'company name from shippers'
+FROM
+    northwind.orders
+         JOIN
+    northwind.shippers ON northwind.orders.shipper_id = northwind.shippers.id
+    
+    
+    
+SELECT 
+    northwind.orders.id AS 'id from orders',
+    northwind.orders.shipper_id AS 'shipper id from orders',
+    northwind.shippers.id AS 'id from shippers',
+    northwind.shippers.company AS 'company name from shippers'
+FROM
+    northwind.orders
+        RIGHT JOIN
+    northwind.shippers ON northwind.orders.shipper_id = northwind.shippers.id 
+UNION SELECT 
+    northwind.orders.id AS 'id from orders',
+    northwind.orders.shipper_id AS 'shipper id from orders',
+    northwind.shippers.id AS 'id from shippers',
+    northwind.shippers.company AS 'company name from shippers'
+FROM
+    northwind.orders
+        LEFT JOIN
+    northwind.shippers ON northwind.orders.shipper_id = northwind.shippers.id
+
+
+SELECT 
+   
+    northwind.employees.first_name,
+     COUNT(northwind.purchase_orders.id) as NumOFOrders
+FROM
+    northwind.purchase_orders
+        LEFT JOIN
+    northwind.employees ON northwind.purchase_orders.created_by = northwind.employees.id
+GROUP BY northwind.employees.first_name
+
+
 
 ```
 
@@ -417,3 +492,6 @@ FROM
 ### ex 1
 - Write a query that return every order and status:  order id, status id (from orders) , id from  order_details_status and status string from order_details_status
 
+### ex 2
+- What is the name of the best supplier ( suppliers + products)
+- What are the names of customers + employees for each order id ( orders, customers, employees ADV: shippers)
