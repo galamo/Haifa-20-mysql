@@ -495,3 +495,58 @@ GROUP BY northwind.employees.first_name
 ### ex 2
 - What is the name of the best supplier ( suppliers + products)
 - What are the names of customers + employees for each order id ( orders, customers, employees ADV: shippers)
+
+
+
+```sql
+
+SELECT 
+    northwind.suppliers.first_name,
+    northwind.suppliers.last_name,
+    COUNT(*) AS NumberOfProducts
+FROM
+    northwind.suppliers
+        JOIN
+    northwind.products ON northwind.suppliers.id = northwind.products.supplier_ids
+GROUP BY northwind.suppliers.first_name , northwind.suppliers.last_name
+order by NumberOfProducts DESC
+
+
+SELECT 
+    northwind.orders.id AS 'id from orders',
+    northwind.shippers.company AS 'company name from shippers',
+    northwind.employees.first_name AS EmployeeName,
+    northwind.customers.first_name AS CustomerName
+FROM
+    northwind.orders
+        JOIN
+    northwind.shippers ON northwind.orders.shipper_id = northwind.shippers.id
+        JOIN
+    northwind.employees ON northwind.orders.employee_id = northwind.employees.id
+        JOIN
+    northwind.customers ON northwind.orders.customer_id = northwind.customers.id
+
+
+
+SELECT 
+    northwind.employees.first_name,
+    northwind.employees.last_name,
+    northwind.employee_privileges.privilege_id,
+    northwind.privileges.privilege_name
+FROM
+    northwind.employees
+        JOIN
+    northwind.employee_privileges ON northwind.employees.id = northwind.employee_privileges.employee_id
+        JOIN
+    northwind.privileges ON northwind.privileges.id = northwind.employee_privileges.privilege_id
+
+
+
+```
+
+
+# Node.js Mysql
+
+1. install package for mysql
+2. `npm i mysql2`
+3. https://www.npmjs.com/package/mysql2
