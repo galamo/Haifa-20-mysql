@@ -85,6 +85,10 @@ SELECT COUNT(DISTINCT customers.city) as NumberOfCitiesCustomers  FROM northwind
 ```
 
 ```sql
+SELECT count(distinct(ship_country_region)) as numberOfRegions FROM northwind.orders;
+```
+
+```sql
 SELECT *  FROM northwind.customers WHERE first_name = 'raafat' OR first_name = 'sapir'
 ```
 
@@ -182,7 +186,7 @@ WHERE
 
 ```
 
-## Homework
+## Homework - 24-4-2022
 
 - fetch the number of food categories from products
 - fetch all the products that cost more than 10$ and in the following categories:
