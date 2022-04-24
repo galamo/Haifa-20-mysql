@@ -1,5 +1,8 @@
 # MySQL
 
+# Download MySQL
+- https://www.mysql.com/downloads/
+
 # MySQL management system
 - https://dev.mysql.com/downloads/workbench/
 
