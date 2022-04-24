@@ -2,6 +2,7 @@
 
 # Download MySQL
 - https://www.mysql.com/downloads/
+- https://dev.mysql.com/downloads/installer/
 
 # MySQL management system
 - https://dev.mysql.com/downloads/workbench/
