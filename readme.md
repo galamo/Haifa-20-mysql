@@ -6,6 +6,11 @@
 # MySQL management system
 - https://dev.mysql.com/downloads/workbench/
 
+### Common issues
+
+https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
+
+
 
 # Select statement
 
