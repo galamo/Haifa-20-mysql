@@ -43,7 +43,7 @@ FROM
 
 
 #### ex 1
-- write a query that fetched all the first name  and job title.
+- write a query that fetched all the first names  and jobs titles from customers table
 
 
 ### Concat
