@@ -3,10 +3,14 @@
 # Download MySQL
 - https://www.mysql.com/downloads/
 - https://dev.mysql.com/downloads/installer/
-
+## Lunch MySQL
+- https://www.mysqltutorial.org/mysql-adminsitration/start-mysql/
 # MySQL management system
 - https://dev.mysql.com/downloads/workbench/
 
+# Run MySQL on docker
+- cd `current-folder`
+- run `docker-compose up`
 ### Common issues
 
 https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170
