@@ -188,15 +188,16 @@ WHERE
 
 ## Homework - 24-4-2022
 
-- fetch the number of food categories from products
+- fetch the number of food categories from products ( answer: 16)
 - fetch all the products that cost more than 10$ and in the following categories:
 Oil
 Sauces
+(answer: 4)
 
-- fetch the number of companies according the suppliers table
-- fetch the number of suppliers
-- fetch the number of customers
-- fetch the number of orders which under state IL
+- fetch the number of companies according the suppliers table (answer: 10)
+- fetch the number of suppliers (answer: 10)
+- fetch the number of customers (answer: 29 )
+- fetch the number of orders which under state IL  (answer: 6 )
 
 
 ### Order By
@@ -222,7 +223,7 @@ order by order_date desc ,shipped_date asc
  ### ex
 
  - write a query that return all the last orders that pay by credit card order by shipped date.
-
+ - write a query that returns all the products orderd by highest standard_cost to the loewest standard_cost 
 
 # Insert statement
 
