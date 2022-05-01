@@ -239,6 +239,11 @@ VALUES (value1, value2, value3, ...),
 
 ```
 
+```sql
+INSERT INTO `northwind`.`customers` (`company`, `last_name`, `first_name`, `email_address`, `job_title`, `business_phone`, `home_phone`, `mobile_phone`, `fax_number`, `address`, `city`, `state_province`, `zip_postal_code`, `country_region`, `web_page`) VALUES ('Company BB', 'Aviv', 'Glaser', 'glaser@aviv.com', 'CTO', '123456789', '1234', '12345685785', '1234786465', '78 st New Yorok', 'New York', 'NY', '983729', 'USA', 'https://www.veryshortintroductions.com/view/10.1093/actrade/9780198779551.001.0001/actrade-9780198779551-chapter-7'),
+ ('Company BB', 'Or', 'wanrder', 'glaser@aviv.com', 'Car washer', '123456789', '1234', '12345685785', '1234786465', '78 st New Yorok', 'New York', 'NY', '983729', 'USA', 'https://www.veryshortintroductions.com/view/10.1093/actrade/9780198779551.001.0001/actrade-9780198779551-chapter-7');
+```
+
 # Null values
 - we cant compare any data cell to Null
 - we will use `is null` Or `is not null`
@@ -280,12 +285,59 @@ DELETE FROM table_name WHERE condition;
 SELECT * FROM northwind.orders where order_date > "2006-01-22 00:00:00" limit 10
 ```
 
+```sql
+SELECT 
+    *
+FROM
+    northwind.products
+WHERE
+    list_price > 10
+ORDER BY list_price DESC
+LIMIT 10
+```
+
+
 ## Functions
 - Max
 - Min
 - Count
 - Avg
 - Sum
+
+```sql
+
+    
+SELECT 
+    product_name
+FROM
+    northwind.products
+WHERE
+    standard_cost = (SELECT 
+            (MIN(standard_cost))
+        FROM
+            northwind.products)
+
+
+```
+
+
+# ex Aggregation Operations
+- Bring all the products which there standard_cost is higher than avarage
+
+- solution
+
+```sql
+SELECT 
+    product_name
+FROM
+    northwind.products
+WHERE
+    standard_cost > (SELECT 
+            (AVG(standard_cost))
+        FROM
+            northwind.products)
+
+```
 
 # Group By
 
