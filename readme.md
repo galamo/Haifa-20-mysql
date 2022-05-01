@@ -347,8 +347,22 @@ FROM table_name
 WHERE condition
 GROUP BY column_name(s)
 ORDER BY column_name(s);
+LIMIT <Number>
 ```
+ 
+```sql
+SELECT 
+    ship_city, COUNT(*) AS NumberOfOrders
+FROM
+    northwind.orders
+WHERE
+    ship_city <> 'Portland'
+GROUP BY ship_city
+HAVING NumberOfOrders > 5
+ORDER BY NumberOfOrders DESC
 
+
+```
 
 ```sql
 
@@ -375,6 +389,20 @@ ORDER BY totalShippingFee desc
 LIMIT 5
 
 
+
+```
+
+
+### northwind.orders table details
+```sql
+SELECT 
+    ship_city,
+    SUM(shipping_fee) AS totalShippingFee,
+    COUNT(*) AS totalOrdersPerCity,
+    AVG(shipping_fee) AS 'totalShippingFee/totalOrdersPerCity'
+FROM
+    northwind.orders
+GROUP BY northwind.orders.ship_city HAVING `totalShippingFee/totalOrdersPerCity` > 50
 
 ```
 
@@ -435,7 +463,7 @@ CREATE TABLE `test_demo2`.`users` (
 
 
 
-## HomeWork
+## HomeWork 1-5-2022
 
 1. ברצונכם לנהל את שירותי ההסעות בחברה, עליכם לכתוב שאילת שמחזירה את כמות העובדים לפי כל עיר
 2. הריצו שאילתה המחזירה את ממוצע מינימום הזמנות לפי כל קטגוריה
@@ -445,18 +473,6 @@ minimum_reorder_quantity
 
 ## Homework Solution
 
-```sql
-1.
-
-SELECT 
-    city, COUNT(*) AS numberOfEmployee
-FROM
-    northwind.employees
-GROUP BY city
-Having max(numberOfEmployee)
-order by numberOfEmployee desc limit 1
-
-```
 
 
 # Join
@@ -464,6 +480,18 @@ order by numberOfEmployee desc limit 1
 ## Inner Join
 
 ### Example:
+
+- Get All Orders with shipping details ( Company Name )
+```sql
+SELECT 
+    northwind.orders.id as orderId , northwind.shippers.company
+FROM
+    northwind.orders
+        LEFT JOIN
+    northwind.shippers ON northwind.orders.shipper_id = northwind.shippers.id
+
+```
+
 
 ```sql
 
@@ -563,13 +591,13 @@ GROUP BY northwind.employees.first_name
 ```
 
 
-### ex 1
+### Homework 1-5-2022
 - Write a query that return every order and status:  order id, status id (from orders) , id from  order_details_status and status string from order_details_status
-
-### ex 2
 - What is the name of the best supplier ( suppliers + products)
 - What are the names of customers + employees for each order id ( orders, customers, employees ADV: shippers)
-
+- Write a query that returns employees and thier priviliges ( privilege_name!!!! )
+- Write a query that returns purchase order details and the supplier company name
+- Who is the best supplier which supply the highest amount of products  - bring the first_name and last name, you can also group by number of products  order them by the amount
 
 
 ```sql
@@ -614,6 +642,23 @@ FROM
         JOIN
     northwind.privileges ON northwind.privileges.id = northwind.employee_privileges.privilege_id
 
+
+
+```
+
+ ## the following query return with the order id and each customer and employee names for each order
+```sql
+SELECT 
+    northwind.orders.id AS OrderId,
+    CONCAT(northwind.employees.first_name,"__", northwind.employees.last_name) AS EmployeeName,
+    CONCAT(northwind.customers.first_name,"__", northwind.customers.last_name)  as CustomerName
+    
+FROM
+    northwind.orders
+        LEFT JOIN
+    northwind.employees ON northwind.orders.employee_id = northwind.employees.id
+        LEFT JOIN
+    northwind.customers ON northwind.orders.customer_id = northwind.customers.id
 
 
 ```
